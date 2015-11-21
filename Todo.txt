@@ -3,3 +3,5 @@ Make any image asset in the UI possible to override.
     - maybe like a 'user interface options' dictionary, otherwise defaults.
 
 Make a podspec
+
+Make a Readme and the project presentable.
