@@ -37,7 +37,7 @@
 typedef NS_ENUM(NSInteger, HSPhotoEditingAssetCreationBehaviour) {
     HSPhotoEditingAssetCreationBehaviourNone = 0,
     HSPhotoEditingAssetCreationBehaviourCreateAssetFromInput,
-    HSPhotoEditingAssetCreationBehaviourCreateAssetFromOutputIfChanged
+    HSPhotoEditingAssetCreationBehaviourCreateAssetFromOutput
 };
 
 typedef NS_ENUM(NSInteger, HSPhotoSource) {
@@ -72,6 +72,7 @@ static NSString * const HSImageUploadAssetWasPickedSegueIdentifier = @"unwindPho
 
 @protocol HSPhotoChoosingProtocol <NSObject>
 
+@required
 - (IBAction)HS_userFinishedSelectingPhoto:(UIStoryboardSegue*)sender;  // you put this in any class that uses this flow
 
 @end

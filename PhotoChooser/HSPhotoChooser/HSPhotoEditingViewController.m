@@ -195,7 +195,7 @@ NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
             [self finishUp];
             break;
         }
-        case HSPhotoEditingAssetCreationBehaviourCreateAssetFromOutputIfChanged: {
+        case HSPhotoEditingAssetCreationBehaviourCreateAssetFromOutput: {
 
             self.outputImage = croppedImage;
             [self createAssetFromImage:croppedImage

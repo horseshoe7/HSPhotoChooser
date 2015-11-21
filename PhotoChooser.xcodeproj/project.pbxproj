@@ -64,6 +64,7 @@
 		DC57FD5D1C00915900E35595 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		DC57FD5F1C0091C700E35595 /* HSCameraNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCameraNavigationViewController.h; sourceTree = "<group>"; };
 		DC57FD601C0091C700E35595 /* HSCameraNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCameraNavigationViewController.m; sourceTree = "<group>"; };
+		DC57FD621C00971600E35595 /* HSPhotoChooser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSPhotoChooser.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +135,7 @@
 		DC57FD3B1C00867800E35595 /* HSPhotoChooser */ = {
 			isa = PBXGroup;
 			children = (
+				DC57FD621C00971600E35595 /* HSPhotoChooser.h */,
 				DC57FD4E1C0088D700E35595 /* Categories */,
 				DC57FD3C1C00867800E35595 /* HSCameraViewController.h */,
 				DC57FD3D1C00867800E35595 /* HSCameraViewController.m */,

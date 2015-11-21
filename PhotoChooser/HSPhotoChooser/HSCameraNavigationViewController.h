@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HSPhotoEditingViewController.h"
 
 @interface HSCameraNavigationViewController : UINavigationController
 
 @property (nonatomic, assign) IBInspectable BOOL squareEditMode;
+@property (nonatomic, assign) IBInspectable HSPhotoEditingAssetCreationBehaviour assetCreationBehaviour;
 
 @end

@@ -393,7 +393,15 @@ static CGSize AssetGridThumbnailSize;
         editorVC.input = self.selectedAsset;
         editorVC.squareEditMode = self.squareEditMode;
         editorVC.photoSource = HSPhotoSourceLibrary;
-        editorVC.assetCreationBehaviour = HSPhotoEditingAssetCreationBehaviourNone;
+        
+        
+        if (self.navigationController && [self.navigationController isKindOfClass:[HSCameraNavigationViewController class]]) {
+            editorVC.assetCreationBehaviour = [(HSCameraNavigationViewController*)self.navigationController assetCreationBehaviour];
+        }
+        else
+        {
+            editorVC.assetCreationBehaviour = HSPhotoEditingAssetCreationBehaviourNone;
+        }
         
     }
 }
