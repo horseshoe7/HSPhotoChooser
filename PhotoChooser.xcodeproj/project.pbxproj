@@ -65,6 +65,7 @@
 		DC57FD5F1C0091C700E35595 /* HSCameraNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCameraNavigationViewController.h; sourceTree = "<group>"; };
 		DC57FD601C0091C700E35595 /* HSCameraNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCameraNavigationViewController.m; sourceTree = "<group>"; };
 		DC57FD621C00971600E35595 /* HSPhotoChooser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSPhotoChooser.h; sourceTree = "<group>"; };
+		DC57FD631C009AF800E35595 /* Todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 		DC57FD151C00849900E35595 = {
 			isa = PBXGroup;
 			children = (
+				DC57FD631C009AF800E35595 /* Todo.txt */,
 				DC57FD3A1C00856A00E35595 /* Podfile */,
 				DC57FD201C00849900E35595 /* PhotoChooser */,
 				DC57FD1F1C00849900E35595 /* Products */,
