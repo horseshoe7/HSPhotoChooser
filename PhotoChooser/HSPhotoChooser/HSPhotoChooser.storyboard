@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aDw-a0-1Hz">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera Navigation View Controller-->
+        <scene sceneID="kN5-rc-tAN">
+            <objects>
+                <navigationController id="aDw-a0-1Hz" customClass="HSCameraNavigationViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hq3-pU-OOG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="U1I-oX-Cva" kind="relationship" relationship="rootViewController" id="049-iW-uYh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S77-jG-mKc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685" y="-629"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="Llx-oU-zeB">
+            <objects>
+                <viewController id="qwX-08-bxC" customClass="HSCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zDQ-7C-waf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gpe-4C-N1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oKK-0H-jnM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPg-90-I0J" customClass="HSSquareCameraMaskView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwK-kP-aRR">
+                                        <rect key="frame" x="538" y="34" width="46" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="d9Q-wX-wJQ"/>
+                                            <constraint firstAttribute="width" constant="46" id="gLO-d9-aNn"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="camera_switch">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressedFlipButton:" destination="qwX-08-bxC" eventType="touchUpInside" id="RFA-C7-xkZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.85055080940000005" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XwK-kP-aRR" secondAttribute="trailing" constant="16" id="Bst-WL-XZS"/>
+                                    <constraint firstItem="XwK-kP-aRR" firstAttribute="top" secondItem="rPg-90-I0J" secondAttribute="top" constant="34" id="S1r-jg-27F"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Pa-bE-VgT">
+                                <rect key="frame" x="267" y="514" width="66" height="66"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="Bqw-qg-Yv4"/>
+                                    <constraint firstAttribute="height" constant="66" id="wau-DE-Svv"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="SNAP!"/>
+                                <connections>
+                                    <action selector="pressedSnapButton:" destination="qwX-08-bxC" eventType="touchUpInside" id="tzD-tQ-u7B"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="149" placeholderIntrinsicHeight="28" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lhN-qd-bGM">
+                                <rect key="frame" x="8" y="40" width="149" height="29"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="DPk-0h-uMt"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="" image="flash_off"/>
+                                    <segment title="" image="flash_on"/>
+                                    <segment title="" image="flashlight"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="pressedSegmentedControl:" destination="qwX-08-bxC" eventType="valueChanged" id="mGu-gU-3rp"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rPg-90-I0J" firstAttribute="top" secondItem="oKK-0H-jnM" secondAttribute="topMargin" id="3Y3-xR-kmk"/>
+                            <constraint firstAttribute="centerX" secondItem="0Pa-bE-VgT" secondAttribute="centerX" id="I3j-H4-Szu"/>
+                            <constraint firstItem="Gpe-4C-N1M" firstAttribute="top" secondItem="0Pa-bE-VgT" secondAttribute="bottom" constant="20" id="ICA-Sw-l9R"/>
+                            <constraint firstAttribute="trailing" secondItem="rPg-90-I0J" secondAttribute="trailing" id="IPu-vA-l5Y"/>
+                            <constraint firstItem="lhN-qd-bGM" firstAttribute="leading" secondItem="oKK-0H-jnM" secondAttribute="leading" constant="8" id="Rgi-3r-y87"/>
+                            <constraint firstItem="rPg-90-I0J" firstAttribute="leading" secondItem="oKK-0H-jnM" secondAttribute="leading" id="cZL-d8-JeA"/>
+                            <constraint firstItem="Gpe-4C-N1M" firstAttribute="top" secondItem="rPg-90-I0J" secondAttribute="bottom" id="nOf-7x-2sz"/>
+                            <constraint firstItem="lhN-qd-bGM" firstAttribute="top" secondItem="zDQ-7C-waf" secondAttribute="bottom" constant="20" id="nSh-yL-Zut"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="flashMode" destination="lhN-qd-bGM" id="Nn1-f8-34M"/>
+                        <outlet property="flipButton" destination="XwK-kP-aRR" id="ped-eD-eZ9"/>
+                        <outlet property="maskView" destination="rPg-90-I0J" id="1ZQ-AO-kZI"/>
+                        <outlet property="snapButton" destination="0Pa-bE-VgT" id="7cv-12-2dU"/>
+                        <segue destination="T5h-mr-F0g" kind="show" identifier="showPhotoEditor" id="vgX-b1-Cxn">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NU6-SW-MiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3304" y="-829"/>
+        </scene>
+        <!--Photo Selection View Controller-->
+        <scene sceneID="0NY-Sy-iCi">
+            <objects>
+                <collectionViewController id="U1I-oX-Cva" customClass="HSPhotoSelectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vt9-0j-xgT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Bxp-kw-myU">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0kZ-eg-rZ9" customClass="HSGridViewCell">
+                                <rect key="frame" x="5" y="69" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XKE-xg-ebI">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="XKE-xg-ebI" secondAttribute="bottom" id="7Yf-rh-eZ3"/>
+                                    <constraint firstItem="XKE-xg-ebI" firstAttribute="top" secondItem="0kZ-eg-rZ9" secondAttribute="top" id="TSV-BO-zF3"/>
+                                    <constraint firstItem="XKE-xg-ebI" firstAttribute="leading" secondItem="0kZ-eg-rZ9" secondAttribute="leading" id="m94-Yg-OjT"/>
+                                    <constraint firstAttribute="trailing" secondItem="XKE-xg-ebI" secondAttribute="trailing" id="n3e-pc-eF4"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="XKE-xg-ebI" id="9mP-o6-vS4"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="U1I-oX-Cva" id="kai-k4-tig"/>
+                            <outlet property="delegate" destination="U1I-oX-Cva" id="usx-st-2Wd"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Cgm-9H-RCZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bGf-3v-Bnd">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="U1I-oX-Cva" id="IGd-Cv-cGn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="qwX-08-bxC" kind="show" identifier="showCameraController" id="5c1-Qv-L7g">
+                            <nil key="action"/>
+                        </segue>
+                        <segue destination="T5h-mr-F0g" kind="show" identifier="showPhotoEditor" id="wFY-KQ-vDn">
+                            <nil key="action"/>
+                        </segue>
+                        <segue destination="l60-iK-7dl" kind="unwind" identifier="unwindPhotosAssetWasPicked" unwindAction="HS_userFinishedSelectingPhoto:" id="TfB-Bh-uvx"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="maM-yY-6rp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="l60-iK-7dl" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2394" y="-629"/>
+        </scene>
+        <!--Photo Editing View Controller-->
+        <scene sceneID="TEz-Ci-eN4">
+            <objects>
+                <viewController id="T5h-mr-F0g" customClass="HSPhotoEditingViewController" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="pgK-0H-u0j" kind="unwind" identifier="unwindPhotosAssetWasPicked" unwindAction="HS_userFinishedSelectingPhoto:" id="RbN-W2-UsC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXX-lN-voK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pgK-0H-u0j" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3615" y="-49"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera_switch" width="32" height="32"/>
+        <image name="flash_off" width="17" height="15"/>
+        <image name="flash_on" width="17" height="15"/>
+        <image name="flashlight" width="17" height="15"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wFY-KQ-vDn"/>
+    </inferredMetricsTieBreakers>
+</document>
