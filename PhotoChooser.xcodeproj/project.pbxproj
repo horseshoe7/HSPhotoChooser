@@ -12,19 +12,17 @@
 		DC57FD2C1C00849900E35595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC57FD2A1C00849900E35595 /* Main.storyboard */; };
 		DC57FD2E1C00849900E35595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC57FD2D1C00849900E35595 /* Assets.xcassets */; };
 		DC57FD311C00849900E35595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC57FD2F1C00849900E35595 /* LaunchScreen.storyboard */; };
-		DC57FD451C00867800E35595 /* HSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD3D1C00867800E35595 /* HSCameraViewController.m */; };
-		DC57FD461C00867800E35595 /* HSGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD3F1C00867800E35595 /* HSGridViewCell.m */; };
-		DC57FD471C00867800E35595 /* HSPhotoChooser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC57FD401C00867800E35595 /* HSPhotoChooser.storyboard */; };
-		DC57FD481C00867800E35595 /* HSPhotoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD421C00867800E35595 /* HSPhotoEditingViewController.m */; };
-		DC57FD491C00867800E35595 /* HSPhotoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD441C00867800E35595 /* HSPhotoSelectionViewController.m */; };
 		DC57FD4D1C00868C00E35595 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD4C1C00868C00E35595 /* ViewController.m */; };
-		DC57FD531C0088D700E35595 /* UIImage+HSIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD501C0088D700E35595 /* UIImage+HSIcons.m */; };
-		DC57FD541C0088D700E35595 /* UIImage+HSiOSPictureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD521C0088D700E35595 /* UIImage+HSiOSPictureButton.m */; };
-		DC57FD571C0089A700E35595 /* NSObject+HSDrawingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD561C0089A700E35595 /* NSObject+HSDrawingHelpers.m */; };
-		DC57FD5A1C008C4500E35595 /* UIColor+HSHexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD591C008C4500E35595 /* UIColor+HSHexColors.m */; };
-		DC57FD5C1C00911600E35595 /* HSPhotoChooser.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC57FD5B1C00911600E35595 /* HSPhotoChooser.xcassets */; };
 		DC57FD5E1C00915900E35595 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC57FD5D1C00915900E35595 /* Photos.framework */; };
-		DC57FD611C0091C700E35595 /* HSCameraNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC57FD601C0091C700E35595 /* HSCameraNavigationViewController.m */; };
+		DC8E029B1CCBCEBE000308C6 /* CameraAndPhotos-README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DC8E028B1CCBCEBE000308C6 /* CameraAndPhotos-README.txt */; };
+		DC8E029C1CCBCEBE000308C6 /* HSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E028D1CCBCEBE000308C6 /* HSCameraViewController.m */; };
+		DC8E029D1CCBCEBE000308C6 /* HSGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E028F1CCBCEBE000308C6 /* HSGridViewCell.m */; };
+		DC8E029E1CCBCEBE000308C6 /* HSImagePicking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8E02911CCBCEBE000308C6 /* HSImagePicking.storyboard */; };
+		DC8E029F1CCBCEBE000308C6 /* HSImagePicking.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC8E02921CCBCEBE000308C6 /* HSImagePicking.xcassets */; };
+		DC8E02A01CCBCEBE000308C6 /* HSImagePickingNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E02941CCBCEBE000308C6 /* HSImagePickingNavigationController.m */; };
+		DC8E02A11CCBCEBE000308C6 /* HSPhotoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E02961CCBCEBE000308C6 /* HSPhotoEditingViewController.m */; };
+		DC8E02A21CCBCEBE000308C6 /* HSPhotoSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E02981CCBCEBE000308C6 /* HSPhotoSelectionViewController.m */; };
+		DC8E02A31CCBCEBE000308C6 /* UIImage+CameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8E029A1CCBCEBE000308C6 /* UIImage+CameraButton.m */; };
 		E07DA544A884B4D92E27F9B6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 297DF4D322CAAEBB46D54611 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,32 +39,27 @@
 		DC57FD301C00849900E35595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC57FD321C00849900E35595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC57FD3A1C00856A00E35595 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		DC57FD3C1C00867800E35595 /* HSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCameraViewController.h; sourceTree = "<group>"; };
-		DC57FD3D1C00867800E35595 /* HSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCameraViewController.m; sourceTree = "<group>"; };
-		DC57FD3E1C00867800E35595 /* HSGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSGridViewCell.h; sourceTree = "<group>"; };
-		DC57FD3F1C00867800E35595 /* HSGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSGridViewCell.m; sourceTree = "<group>"; };
-		DC57FD401C00867800E35595 /* HSPhotoChooser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HSPhotoChooser.storyboard; sourceTree = "<group>"; };
-		DC57FD411C00867800E35595 /* HSPhotoEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSPhotoEditingViewController.h; sourceTree = "<group>"; };
-		DC57FD421C00867800E35595 /* HSPhotoEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSPhotoEditingViewController.m; sourceTree = "<group>"; };
-		DC57FD431C00867800E35595 /* HSPhotoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSPhotoSelectionViewController.h; sourceTree = "<group>"; };
-		DC57FD441C00867800E35595 /* HSPhotoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSPhotoSelectionViewController.m; sourceTree = "<group>"; };
 		DC57FD4B1C00868C00E35595 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DC57FD4C1C00868C00E35595 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DC57FD4F1C0088D700E35595 /* UIImage+HSIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HSIcons.h"; sourceTree = "<group>"; };
-		DC57FD501C0088D700E35595 /* UIImage+HSIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HSIcons.m"; sourceTree = "<group>"; };
-		DC57FD511C0088D700E35595 /* UIImage+HSiOSPictureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HSiOSPictureButton.h"; sourceTree = "<group>"; };
-		DC57FD521C0088D700E35595 /* UIImage+HSiOSPictureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HSiOSPictureButton.m"; sourceTree = "<group>"; };
-		DC57FD551C0089A700E35595 /* NSObject+HSDrawingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HSDrawingHelpers.h"; sourceTree = "<group>"; };
-		DC57FD561C0089A700E35595 /* NSObject+HSDrawingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HSDrawingHelpers.m"; sourceTree = "<group>"; };
-		DC57FD581C008C4500E35595 /* UIColor+HSHexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HSHexColors.h"; sourceTree = "<group>"; };
-		DC57FD591C008C4500E35595 /* UIColor+HSHexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HSHexColors.m"; sourceTree = "<group>"; };
-		DC57FD5B1C00911600E35595 /* HSPhotoChooser.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HSPhotoChooser.xcassets; sourceTree = "<group>"; };
 		DC57FD5D1C00915900E35595 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		DC57FD5F1C0091C700E35595 /* HSCameraNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCameraNavigationViewController.h; sourceTree = "<group>"; };
-		DC57FD601C0091C700E35595 /* HSCameraNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCameraNavigationViewController.m; sourceTree = "<group>"; };
-		DC57FD621C00971600E35595 /* HSPhotoChooser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSPhotoChooser.h; sourceTree = "<group>"; };
 		DC57FD631C009AF800E35595 /* Todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Todo.txt; sourceTree = "<group>"; };
 		DC57FD641C009B7300E35595 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DC8E028B1CCBCEBE000308C6 /* CameraAndPhotos-README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CameraAndPhotos-README.txt"; sourceTree = "<group>"; };
+		DC8E028C1CCBCEBE000308C6 /* HSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCameraViewController.h; sourceTree = "<group>"; };
+		DC8E028D1CCBCEBE000308C6 /* HSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCameraViewController.m; sourceTree = "<group>"; };
+		DC8E028E1CCBCEBE000308C6 /* HSGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSGridViewCell.h; sourceTree = "<group>"; };
+		DC8E028F1CCBCEBE000308C6 /* HSGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSGridViewCell.m; sourceTree = "<group>"; };
+		DC8E02901CCBCEBE000308C6 /* HSImagePicking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSImagePicking.h; sourceTree = "<group>"; };
+		DC8E02911CCBCEBE000308C6 /* HSImagePicking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HSImagePicking.storyboard; sourceTree = "<group>"; };
+		DC8E02921CCBCEBE000308C6 /* HSImagePicking.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HSImagePicking.xcassets; sourceTree = "<group>"; };
+		DC8E02931CCBCEBE000308C6 /* HSImagePickingNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSImagePickingNavigationController.h; sourceTree = "<group>"; };
+		DC8E02941CCBCEBE000308C6 /* HSImagePickingNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSImagePickingNavigationController.m; sourceTree = "<group>"; };
+		DC8E02951CCBCEBE000308C6 /* HSPhotoEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSPhotoEditingViewController.h; sourceTree = "<group>"; };
+		DC8E02961CCBCEBE000308C6 /* HSPhotoEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSPhotoEditingViewController.m; sourceTree = "<group>"; };
+		DC8E02971CCBCEBE000308C6 /* HSPhotoSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSPhotoSelectionViewController.h; sourceTree = "<group>"; };
+		DC8E02981CCBCEBE000308C6 /* HSPhotoSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSPhotoSelectionViewController.m; sourceTree = "<group>"; };
+		DC8E02991CCBCEBE000308C6 /* UIImage+CameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CameraButton.h"; sourceTree = "<group>"; };
+		DC8E029A1CCBCEBE000308C6 /* UIImage+CameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CameraButton.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +112,7 @@
 				DC57FD251C00849900E35595 /* AppDelegate.m */,
 				DC57FD2A1C00849900E35595 /* Main.storyboard */,
 				DC57FD2D1C00849900E35595 /* Assets.xcassets */,
-				DC57FD3B1C00867800E35595 /* HSPhotoChooser */,
+				DC8E028A1CCBCEBE000308C6 /* HSPhotoChooser */,
 				DC57FD4A1C00868C00E35595 /* Source */,
 				DC57FD2F1C00849900E35595 /* LaunchScreen.storyboard */,
 				DC57FD321C00849900E35595 /* Info.plist */,
@@ -136,27 +129,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DC57FD3B1C00867800E35595 /* HSPhotoChooser */ = {
-			isa = PBXGroup;
-			children = (
-				DC57FD621C00971600E35595 /* HSPhotoChooser.h */,
-				DC57FD4E1C0088D700E35595 /* Categories */,
-				DC57FD3C1C00867800E35595 /* HSCameraViewController.h */,
-				DC57FD3D1C00867800E35595 /* HSCameraViewController.m */,
-				DC57FD3E1C00867800E35595 /* HSGridViewCell.h */,
-				DC57FD3F1C00867800E35595 /* HSGridViewCell.m */,
-				DC57FD401C00867800E35595 /* HSPhotoChooser.storyboard */,
-				DC57FD411C00867800E35595 /* HSPhotoEditingViewController.h */,
-				DC57FD421C00867800E35595 /* HSPhotoEditingViewController.m */,
-				DC57FD431C00867800E35595 /* HSPhotoSelectionViewController.h */,
-				DC57FD441C00867800E35595 /* HSPhotoSelectionViewController.m */,
-				DC57FD5B1C00911600E35595 /* HSPhotoChooser.xcassets */,
-				DC57FD5F1C0091C700E35595 /* HSCameraNavigationViewController.h */,
-				DC57FD601C0091C700E35595 /* HSCameraNavigationViewController.m */,
-			);
-			path = HSPhotoChooser;
-			sourceTree = "<group>";
-		};
 		DC57FD4A1C00868C00E35595 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,19 +138,27 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		DC57FD4E1C0088D700E35595 /* Categories */ = {
+		DC8E028A1CCBCEBE000308C6 /* HSPhotoChooser */ = {
 			isa = PBXGroup;
 			children = (
-				DC57FD551C0089A700E35595 /* NSObject+HSDrawingHelpers.h */,
-				DC57FD561C0089A700E35595 /* NSObject+HSDrawingHelpers.m */,
-				DC57FD581C008C4500E35595 /* UIColor+HSHexColors.h */,
-				DC57FD591C008C4500E35595 /* UIColor+HSHexColors.m */,
-				DC57FD4F1C0088D700E35595 /* UIImage+HSIcons.h */,
-				DC57FD501C0088D700E35595 /* UIImage+HSIcons.m */,
-				DC57FD511C0088D700E35595 /* UIImage+HSiOSPictureButton.h */,
-				DC57FD521C0088D700E35595 /* UIImage+HSiOSPictureButton.m */,
+				DC8E028B1CCBCEBE000308C6 /* CameraAndPhotos-README.txt */,
+				DC8E028C1CCBCEBE000308C6 /* HSCameraViewController.h */,
+				DC8E028D1CCBCEBE000308C6 /* HSCameraViewController.m */,
+				DC8E028E1CCBCEBE000308C6 /* HSGridViewCell.h */,
+				DC8E028F1CCBCEBE000308C6 /* HSGridViewCell.m */,
+				DC8E02901CCBCEBE000308C6 /* HSImagePicking.h */,
+				DC8E02911CCBCEBE000308C6 /* HSImagePicking.storyboard */,
+				DC8E02921CCBCEBE000308C6 /* HSImagePicking.xcassets */,
+				DC8E02931CCBCEBE000308C6 /* HSImagePickingNavigationController.h */,
+				DC8E02941CCBCEBE000308C6 /* HSImagePickingNavigationController.m */,
+				DC8E02951CCBCEBE000308C6 /* HSPhotoEditingViewController.h */,
+				DC8E02961CCBCEBE000308C6 /* HSPhotoEditingViewController.m */,
+				DC8E02971CCBCEBE000308C6 /* HSPhotoSelectionViewController.h */,
+				DC8E02981CCBCEBE000308C6 /* HSPhotoSelectionViewController.m */,
+				DC8E02991CCBCEBE000308C6 /* UIImage+CameraButton.h */,
+				DC8E029A1CCBCEBE000308C6 /* UIImage+CameraButton.m */,
 			);
-			path = Categories;
+			path = HSPhotoChooser;
 			sourceTree = "<group>";
 		};
 		F1BB888B4367689F0164A441 /* Pods */ = {
@@ -250,10 +230,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC57FD471C00867800E35595 /* HSPhotoChooser.storyboard in Resources */,
+				DC8E029B1CCBCEBE000308C6 /* CameraAndPhotos-README.txt in Resources */,
 				DC57FD311C00849900E35595 /* LaunchScreen.storyboard in Resources */,
+				DC8E029F1CCBCEBE000308C6 /* HSImagePicking.xcassets in Resources */,
 				DC57FD2E1C00849900E35595 /* Assets.xcassets in Resources */,
-				DC57FD5C1C00911600E35595 /* HSPhotoChooser.xcassets in Resources */,
+				DC8E029E1CCBCEBE000308C6 /* HSImagePicking.storyboard in Resources */,
 				DC57FD2C1C00849900E35595 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,18 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC57FD611C0091C700E35595 /* HSCameraNavigationViewController.m in Sources */,
+				DC8E02A11CCBCEBE000308C6 /* HSPhotoEditingViewController.m in Sources */,
 				DC57FD4D1C00868C00E35595 /* ViewController.m in Sources */,
-				DC57FD461C00867800E35595 /* HSGridViewCell.m in Sources */,
-				DC57FD531C0088D700E35595 /* UIImage+HSIcons.m in Sources */,
+				DC8E02A21CCBCEBE000308C6 /* HSPhotoSelectionViewController.m in Sources */,
+				DC8E029D1CCBCEBE000308C6 /* HSGridViewCell.m in Sources */,
+				DC8E02A01CCBCEBE000308C6 /* HSImagePickingNavigationController.m in Sources */,
+				DC8E02A31CCBCEBE000308C6 /* UIImage+CameraButton.m in Sources */,
 				DC57FD261C00849900E35595 /* AppDelegate.m in Sources */,
-				DC57FD481C00867800E35595 /* HSPhotoEditingViewController.m in Sources */,
-				DC57FD451C00867800E35595 /* HSCameraViewController.m in Sources */,
-				DC57FD571C0089A700E35595 /* NSObject+HSDrawingHelpers.m in Sources */,
-				DC57FD541C0088D700E35595 /* UIImage+HSiOSPictureButton.m in Sources */,
+				DC8E029C1CCBCEBE000308C6 /* HSCameraViewController.m in Sources */,
 				DC57FD231C00849900E35595 /* main.m in Sources */,
-				DC57FD5A1C008C4500E35595 /* UIColor+HSHexColors.m in Sources */,
-				DC57FD491C00867800E35595 /* HSPhotoSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

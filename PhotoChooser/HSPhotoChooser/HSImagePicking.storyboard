@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h8q-Gx-ULQ">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Picking Navigation Controller-->
+        <scene sceneID="A1Q-T0-OdR">
+            <objects>
+                <navigationController storyboardIdentifier="ImagePicking.WithNavigationController" id="h8q-Gx-ULQ" customClass="HSImagePickingNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iiu-F7-vK0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tay-om-Q7a" kind="relationship" relationship="rootViewController" id="vGl-OO-gwJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAq-6c-Voh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685" y="-629"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="yFQ-iQ-Nxg">
+            <objects>
+                <viewController id="9BI-7s-C2D" customClass="HSCameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gpZ-Ni-cvk"/>
+                        <viewControllerLayoutGuide type="bottom" id="1nB-LT-X4x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aHf-6u-sjk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAR-Ui-dVg" customClass="HSSquareCameraMaskView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHd-sh-oUM">
+                                        <rect key="frame" x="538" y="34" width="46" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="N7e-9g-f3V"/>
+                                            <constraint firstAttribute="height" constant="44" id="Xg5-Te-c0X"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="camera_switch">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pressedFlipButton:" destination="9BI-7s-C2D" eventType="touchUpInside" id="c6U-mA-vu0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.85055080940000005" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="RHd-sh-oUM" secondAttribute="trailing" constant="16" id="NSe-Pc-cWF"/>
+                                    <constraint firstItem="RHd-sh-oUM" firstAttribute="top" secondItem="JAR-Ui-dVg" secondAttribute="top" constant="34" id="cDR-cY-yP2"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jo7-GI-GcX">
+                                <rect key="frame" x="267" y="514" width="66" height="66"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="95v-j0-YUn"/>
+                                    <constraint firstAttribute="width" constant="66" id="cxf-Ek-eye"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="SNAP!"/>
+                                <connections>
+                                    <action selector="pressedSnapButton:" destination="9BI-7s-C2D" eventType="touchUpInside" id="8zQ-AQ-8SW"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="149" placeholderIntrinsicHeight="28" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8xY-aU-vfN">
+                                <rect key="frame" x="8" y="40" width="149" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="fsW-OM-gxO"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="" image="flash_off"/>
+                                    <segment title="" image="flash_on"/>
+                                    <segment title="" image="flashlight"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="pressedSegmentedControl:" destination="9BI-7s-C2D" eventType="valueChanged" id="RoM-9v-CgO"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JAR-Ui-dVg" secondAttribute="trailing" id="8Ia-5A-nap"/>
+                            <constraint firstItem="1nB-LT-X4x" firstAttribute="top" secondItem="JAR-Ui-dVg" secondAttribute="bottom" id="8in-cD-fUe"/>
+                            <constraint firstItem="JAR-Ui-dVg" firstAttribute="leading" secondItem="aHf-6u-sjk" secondAttribute="leading" id="S81-Kb-DfE"/>
+                            <constraint firstItem="JAR-Ui-dVg" firstAttribute="top" secondItem="aHf-6u-sjk" secondAttribute="topMargin" id="Skd-c1-jzL"/>
+                            <constraint firstItem="8xY-aU-vfN" firstAttribute="leading" secondItem="aHf-6u-sjk" secondAttribute="leading" constant="8" id="XxA-y5-CFk"/>
+                            <constraint firstItem="8xY-aU-vfN" firstAttribute="top" secondItem="gpZ-Ni-cvk" secondAttribute="bottom" constant="20" id="cMG-Ag-RSb"/>
+                            <constraint firstItem="1nB-LT-X4x" firstAttribute="top" secondItem="Jo7-GI-GcX" secondAttribute="bottom" constant="20" id="gBP-l7-Wko"/>
+                            <constraint firstAttribute="centerX" secondItem="Jo7-GI-GcX" secondAttribute="centerX" id="uIS-K5-x8N"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="flashMode" destination="8xY-aU-vfN" id="dmO-HQ-qqf"/>
+                        <outlet property="flipButton" destination="RHd-sh-oUM" id="vLg-tw-ICF"/>
+                        <outlet property="maskView" destination="JAR-Ui-dVg" id="5Fj-UT-XZ1"/>
+                        <outlet property="snapButton" destination="Jo7-GI-GcX" id="nAu-b4-bHA"/>
+                        <segue destination="PEZ-kl-ife" kind="show" identifier="showPhotoEditor" id="0pS-2H-hLn">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibq-De-0dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3466" y="-1005"/>
+        </scene>
+        <!--Photo Selection View Controller-->
+        <scene sceneID="4sT-V2-jDs">
+            <objects>
+                <collectionViewController storyboardIdentifier="ImagePicking.NoNavigationController" id="tay-om-Q7a" customClass="HSPhotoSelectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VgW-Tk-X3T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="nxd-tB-4Py">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="szU-rX-hVo" customClass="HSGridViewCell">
+                                <rect key="frame" x="5" y="69" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g0Z-NK-58K">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="g0Z-NK-58K" secondAttribute="bottom" id="4ZA-R5-EBB"/>
+                                    <constraint firstAttribute="trailing" secondItem="g0Z-NK-58K" secondAttribute="trailing" id="ai9-lz-p7I"/>
+                                    <constraint firstItem="g0Z-NK-58K" firstAttribute="leading" secondItem="szU-rX-hVo" secondAttribute="leading" id="rcC-PJ-hS4"/>
+                                    <constraint firstItem="g0Z-NK-58K" firstAttribute="top" secondItem="szU-rX-hVo" secondAttribute="top" id="t0u-uV-VBC"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="g0Z-NK-58K" id="vyM-iE-KEq"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="tay-om-Q7a" id="Yfz-1H-1HK"/>
+                            <outlet property="delegate" destination="tay-om-Q7a" id="dmL-9K-9NI"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="ymT-aB-5vX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bZY-XE-vyZ">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="tay-om-Q7a" id="YAr-AN-SKA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="9BI-7s-C2D" kind="show" identifier="showCameraController" id="2Rq-h9-ts9">
+                            <nil key="action"/>
+                        </segue>
+                        <segue destination="PEZ-kl-ife" kind="show" identifier="showPhotoEditor" id="UOt-BE-3DZ">
+                            <nil key="action"/>
+                        </segue>
+                        <segue destination="JCS-43-JVX" kind="unwind" identifier="unwindPhotosAssetWasPicked" unwindAction="photosAssetWasPicked:" id="11q-Cr-iE2"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3MW-1P-ZGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JCS-43-JVX" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2394" y="-629"/>
+        </scene>
+        <!--Photo Editing View Controller-->
+        <scene sceneID="zfb-DS-BgN">
+            <objects>
+                <viewController id="PEZ-kl-ife" customClass="HSPhotoEditingViewController" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="F1q-JT-qX3" kind="unwind" identifier="unwindPhotosAssetWasPicked" unwindAction="photosAssetWasPicked:" id="4cy-DT-C0Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Yl-yP-yLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="F1q-JT-qX3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3466" y="-297"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera_switch" width="32" height="32"/>
+        <image name="flash_off" width="17" height="15"/>
+        <image name="flash_on" width="17" height="15"/>
+        <image name="flashlight" width="17" height="15"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0pS-2H-hLn"/>
+    </inferredMetricsTieBreakers>
+</document>

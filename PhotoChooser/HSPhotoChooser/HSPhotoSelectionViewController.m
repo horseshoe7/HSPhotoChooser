@@ -29,7 +29,6 @@
 #import "HSPhotoEditingViewController.h"
 #import "HSGridViewCell.h"
 #import "HSCameraViewController.h"
-#import "HSCameraNavigationViewController.h"
 
 #pragma mark - Category Helpers
 
@@ -66,7 +65,11 @@
 @end
 
 @interface HSPhotoSelectionViewController ()<PHPhotoLibraryChangeObserver>
-
+{
+    BOOL _squareEditMode;
+    HSPhotoEditingAssetCreationBehaviour _assetCreationBehaviour;
+    
+}
 @property (nonatomic, strong) PHAsset *selectedAsset;
 
 @property (nonatomic, strong) PHFetchResult *assetsFetchResults;
@@ -118,6 +121,7 @@ static CGSize AssetGridThumbnailSize;
     [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -134,6 +138,7 @@ static CGSize AssetGridThumbnailSize;
     flowLayout.itemSize = CGSizeMake(squareSize, squareSize);
 
     
+
     
     // Do any additional setup after loading the view.
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
@@ -146,10 +151,6 @@ static CGSize AssetGridThumbnailSize;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if (self.navigationController && [self.navigationController isKindOfClass:[HSCameraNavigationViewController class]]) {
-        self.squareEditMode = [(HSCameraNavigationViewController*)self.navigationController squareEditMode];
-    }
     
     CGFloat scale = [UIScreen mainScreen].scale;
     CGSize cellSize = ((UICollectionViewFlowLayout *)self.collectionViewLayout).itemSize;
@@ -385,26 +386,71 @@ static CGSize AssetGridThumbnailSize;
     if ([segue.identifier isEqualToString:kSegueIdentifierShowCameraController])
     {
         HSCameraViewController *camVC = [segue destinationViewController];
+        camVC.assetCreationBehaviour = self.assetCreationBehaviour;
         camVC.squareEditMode = self.squareEditMode;
+        
     }
     else if ([segue.identifier isEqualToString:kSegueIdentifierShowEditorController])
     {
         HSPhotoEditingViewController *editorVC = [segue destinationViewController];
         editorVC.input = self.selectedAsset;
-        editorVC.squareEditMode = self.squareEditMode;
         editorVC.photoSource = HSPhotoSourceLibrary;
-        
-        
-        if (self.navigationController && [self.navigationController isKindOfClass:[HSCameraNavigationViewController class]]) {
-            editorVC.assetCreationBehaviour = [(HSCameraNavigationViewController*)self.navigationController assetCreationBehaviour];
-        }
-        else
-        {
-            editorVC.assetCreationBehaviour = HSPhotoEditingAssetCreationBehaviourNone;
-        }
-        
+        editorVC.assetCreationBehaviour = self.assetCreationBehaviour;
+        editorVC.squareEditMode = self.squareEditMode;
     }
 }
 
+
+#pragma mark - Fundamental Properties
+
+- (void)setSquareEditMode:(BOOL)squareEditMode
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        [(HSImagePickingNavigationController*)self.navigationController setSquareEditMode: squareEditMode];
+    }
+    else
+    {
+        if (squareEditMode != _squareEditMode) {
+            _squareEditMode = squareEditMode;
+        }
+    }
+    
+}
+
+- (BOOL)squareEditMode
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        return [(HSImagePickingNavigationController*)self.navigationController squareEditMode];
+    }
+    else
+    {
+        return _squareEditMode;
+    }
+}
+
+- (void)setAssetCreationBehaviour:(HSPhotoEditingAssetCreationBehaviour)assetCreationBehaviour
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        [(HSImagePickingNavigationController*)self.navigationController setAssetCreationBehaviour:assetCreationBehaviour];
+    }
+    else
+    {
+        if (assetCreationBehaviour != _assetCreationBehaviour) {
+            _assetCreationBehaviour = assetCreationBehaviour;
+        }
+    }
+    
+}
+
+- (HSPhotoEditingAssetCreationBehaviour)assetCreationBehaviour
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        return [(HSImagePickingNavigationController*)self.navigationController assetCreationBehaviour];
+    }
+    else
+    {
+        return _assetCreationBehaviour;
+    }
+}
 
 @end

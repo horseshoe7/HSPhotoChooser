@@ -28,7 +28,8 @@
 #import "HSCameraViewController.h"
 #import <FastttCamera.h>
 #import "HSPhotoEditingViewController.h"
-#import "UIImage+HSIcons.h"
+#import "UIImage+CameraButton.h"
+#import "HSImagePickingNavigationController.h"
 
 static NSInteger const kSegmentedControlIndexFlashOff = 0;
 static NSInteger const kSegmentedControlIndexFlashOn = 1;
@@ -110,7 +111,10 @@ static NSInteger const kSegmentedControlIndexFlashTorch = 2;
 
 
 @interface HSCameraViewController ()<FastttCameraDelegate>
-
+{
+    BOOL _squareEditMode;
+    HSPhotoEditingAssetCreationBehaviour _assetCreationBehaviour;
+}
 @property (nonatomic, strong) FastttCamera *fastCamera;
 
 @property (nonatomic, weak) IBOutlet HSSquareCameraMaskView *maskView;
@@ -129,8 +133,6 @@ static NSInteger const kSegmentedControlIndexFlashTorch = 2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.squareEditMode = YES;
     
     _fastCamera = [FastttCamera new];
     self.fastCamera.delegate = self;
@@ -195,20 +197,15 @@ static NSInteger const kSegmentedControlIndexFlashTorch = 2;
 {
     UIImage *normal, *highlighted;
     
-    normal = [UIImage HS_takePictureImageWithSize:self.snapButton.bounds.size
-                                        lineColor:[UIColor whiteColor]
-                                        fillColor:[UIColor whiteColor]
-                                  backgroundColor:nil];
-    
+    normal = [UIImage HS_iOSCameraButtonWithSize:self.snapButton.bounds.size
+                                     highlighted:NO];
     
     [self.snapButton setTitle:nil forState:UIControlStateNormal];
     [self.snapButton setImage:normal forState:UIControlStateNormal];
     
     
-    highlighted = [UIImage HS_takePictureImageWithSize:self.snapButton.bounds.size
-                                             lineColor:[UIColor whiteColor]
-                                             fillColor:[UIColor lightGrayColor]
-                                       backgroundColor:nil];
+    highlighted = [UIImage HS_iOSCameraButtonWithSize:self.snapButton.bounds.size
+                                          highlighted:YES];
     
     [self.snapButton setImage:highlighted forState:UIControlStateHighlighted];
     
@@ -308,10 +305,10 @@ didFinishNormalizingCapturedImage:(FastttCapturedImage *)capturedImage
     if ([segue.identifier isEqualToString:@"showPhotoEditor"]) {
         HSPhotoEditingViewController *editorVC = [segue destinationViewController];
         editorVC.input = self.capturedImage;
-        editorVC.assetCreationBehaviour = HSPhotoEditingAssetCreationBehaviourCreateAssetFromInput;
         _capturedImage = nil;
-        editorVC.squareEditMode = self.squareEditMode;
         editorVC.photoSource = HSPhotoSourceCamera;
+        editorVC.assetCreationBehaviour = self.assetCreationBehaviour;
+        editorVC.squareEditMode = self.squareEditMode;
         
         if(self.fastCamera.cameraDevice == FastttCameraDeviceFront){
             editorVC.cameraSourceOrNil = @(HSCameraSourceFrontCam);
@@ -335,6 +332,58 @@ didFinishNormalizingCapturedImage:(FastttCapturedImage *)capturedImage
                 break;
         }
         
+    }
+}
+
+#pragma mark - Semi-derived Properties
+
+- (void)setSquareEditMode:(BOOL)squareEditMode
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        [(HSImagePickingNavigationController*)self.navigationController setSquareEditMode: squareEditMode];
+    }
+    else
+    {
+        if (squareEditMode != _squareEditMode) {
+            _squareEditMode = squareEditMode;
+        }
+    }
+    
+}
+
+- (BOOL)squareEditMode
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        return [(HSImagePickingNavigationController*)self.navigationController squareEditMode];
+    }
+    else
+    {
+        return _squareEditMode;
+    }
+}
+
+- (void)setAssetCreationBehaviour:(HSPhotoEditingAssetCreationBehaviour)assetCreationBehaviour
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        [(HSImagePickingNavigationController*)self.navigationController setAssetCreationBehaviour:assetCreationBehaviour];
+    }
+    else
+    {
+        if (assetCreationBehaviour != _assetCreationBehaviour) {
+            _assetCreationBehaviour = assetCreationBehaviour;
+        }
+    }
+    
+}
+
+- (HSPhotoEditingAssetCreationBehaviour)assetCreationBehaviour
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        return [(HSImagePickingNavigationController*)self.navigationController assetCreationBehaviour];
+    }
+    else
+    {
+        return _assetCreationBehaviour;
     }
 }
 

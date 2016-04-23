@@ -27,12 +27,8 @@
 
 #import "HSPhotoEditingViewController.h"
 #import <Photos/Photos.h>
+#import "HSImagePickingNavigationController.h"
 
-NSString * const HSPhotoEditingResultKeyAsset = @"asset";
-NSString * const HSPhotoEditingResultKeyImage = @"image";
-NSString * const HSPhotoEditingResultKeyPhotoSource = @"photoSource";
-NSString * const HSPhotoEditingResultKeyCameraSource = @"cameraSource";
-NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
 
 
 
@@ -41,7 +37,10 @@ NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
 @end
 
 @interface HSPhotoEditingViewController ()<PECropViewControllerDelegate>
-
+{
+    BOOL _squareEditMode;
+    HSPhotoEditingAssetCreationBehaviour _assetCreationBehaviour;
+}
 @property (nonatomic, strong) PHAsset *asset;
 @property (nonatomic, strong) UIImage *outputImage;
 
@@ -49,7 +48,9 @@ NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
 
 @implementation HSPhotoEditingViewController
 
-- (void)setSquareEditMode:(BOOL)squareEditMode
+
+
+- (void)configureViewControllerForSquareEditModeState:(BOOL)squareEditMode
 {
     if (squareEditMode) {
         self.cropAspectRatio = 1.0f;
@@ -94,6 +95,9 @@ NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
     
     NSAssert(self.input != nil, @"You need to provide an input object for this controller to work!");
     NSAssert([self.input isKindOfClass:[UIImage class]] || [self.input isKindOfClass:[PHAsset class]], @"Designed to work with images or assets");
+    NSAssert(self.navigationController, @"Thought he'd be embedded by now!");
+    
+    [self configureViewControllerForSquareEditModeState:self.squareEditMode];
     
     if ([self.input isKindOfClass:[PHAsset class]]) {
         // get image from asset
@@ -195,7 +199,7 @@ NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
             [self finishUp];
             break;
         }
-        case HSPhotoEditingAssetCreationBehaviourCreateAssetFromOutput: {
+        case HSPhotoEditingAssetCreationBehaviourCreateAssetFromOutputIfChanged: {
 
             self.outputImage = croppedImage;
             [self createAssetFromImage:croppedImage
@@ -238,6 +242,58 @@ NSString * const HSPhotoEditingResultKeyCameraLighting = @"cameraLighting";
     self.outputInfo = results;
     
     [self performSegueWithIdentifier:HSImageUploadAssetWasPickedSegueIdentifier sender:self];
+}
+
+#pragma mark - Semi-derived Properties
+
+- (void)setSquareEditMode:(BOOL)squareEditMode
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        [(HSImagePickingNavigationController*)self.navigationController setSquareEditMode: squareEditMode];
+    }
+    else
+    {
+        if (squareEditMode != _squareEditMode) {
+            _squareEditMode = squareEditMode;
+        }
+    }
+    
+}
+
+- (BOOL)squareEditMode
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        return [(HSImagePickingNavigationController*)self.navigationController squareEditMode];
+    }
+    else
+    {
+        return _squareEditMode;
+    }
+}
+
+- (void)setAssetCreationBehaviour:(HSPhotoEditingAssetCreationBehaviour)assetCreationBehaviour
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        [(HSImagePickingNavigationController*)self.navigationController setAssetCreationBehaviour:assetCreationBehaviour];
+    }
+    else
+    {
+        if (assetCreationBehaviour != _assetCreationBehaviour) {
+            _assetCreationBehaviour = assetCreationBehaviour;
+        }
+    }
+    
+}
+
+- (HSPhotoEditingAssetCreationBehaviour)assetCreationBehaviour
+{
+    if (self.navigationController && [self.navigationController isKindOfClass:[HSImagePickingNavigationController class]]) {
+        return [(HSImagePickingNavigationController*)self.navigationController assetCreationBehaviour];
+    }
+    else
+    {
+        return _assetCreationBehaviour;
+    }
 }
 
 /*

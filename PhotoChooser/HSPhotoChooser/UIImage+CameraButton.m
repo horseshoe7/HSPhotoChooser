@@ -1,44 +1,54 @@
 //
-//  UIImage+PictureButton.m
+//  UIImage+CameraButton.m
+//  SkiveApp
 //
-//  Created by Stephen O'Connor on 2/6/15.
-//  The MIT License (MIT)
+//  Created by Stephen O'Connor on 08/04/16.
+//  Copyright © 2016 Skive. All rights reserved.
 //
-// Copyright (c) 2015 Stephen O'Connor
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
+#import "UIImage+CameraButton.h"
 
-#import "UIImage+HSiOSPictureButton.h"
-#import "NSObject+HSDrawingHelpers.h"
-#import "UIImage+HSIcons.h"
+@implementation UIImage (CameraButton)
 
-@implementation UIImage (PictureButton)
++ (UIImage*)HS_iOSCameraButtonWithSize:(CGSize)size highlighted:(BOOL)highlighted
+{
+    if (size.width == 0 || size.height == 0) {
+        return nil;
+    }
+    
+    UIImage *image = nil;
+    
+    BOOL opaque = NO;
+    
+    CGRect imageRect = CGRectMake(0.0, 0.0, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(size, opaque, [UIScreen mainScreen].scale);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    UIColor *fillColor = highlighted ? [UIColor lightGrayColor] : [UIColor whiteColor];
+    UIColor *rimColor = [UIColor whiteColor];
+    
+    [self HS_drawPictureIconInContext:context
+                            imageRect:imageRect
+                 imageBackgroundColor:nil
+                            lineColor:rimColor
+                            fillColor:fillColor];
+    
+    image = UIGraphicsGetImageFromCurrentImageContext();  // UIImage returned.
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 
 + (void)HS_drawPictureIconInContext:(CGContextRef)context
-                           imageRect:(CGRect)imageRect
-                              params:(NSDictionary*)params
+                          imageRect:(CGRect)imageRect
+               imageBackgroundColor:(UIColor*)bgColor
+                          lineColor:(UIColor*)lineColor
+                          fillColor:(UIColor*)fillColor
 {
-    if (params[HSIconInfoKeyBackgroundColor])
+    if (bgColor)
     {
         UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect:imageRect];
-        [params[HSIconInfoKeyBackgroundColor] setFill];
+        [bgColor setFill];
         [rectanglePath fill];
     }
     
@@ -62,16 +72,38 @@
     [bezierPath addCurveToPoint: CGPointMake(fitRect.origin.x + wf * 37.67, fitRect.origin.y + hf * 36.26) controlPoint1: CGPointMake(fitRect.origin.x + wf * -10.56, fitRect.origin.y + hf * 164.73) controlPoint2: CGPointMake(fitRect.origin.x + wf * -10.56, fitRect.origin.y + hf * 85.27)];
     [bezierPath addCurveToPoint: CGPointMake(fitRect.origin.x + wf * 212.33, fitRect.origin.y + hf * 36.26) controlPoint1: CGPointMake(fitRect.origin.x + wf * 85.9, fitRect.origin.y + hf * -12.75) controlPoint2: CGPointMake(fitRect.origin.x + wf * 164.1, fitRect.origin.y + hf * -12.75)];
     [bezierPath closePath];
-    [params[HSIconInfoKeyLineColor] setFill];
+    [lineColor setFill];
     [bezierPath fill];
     
     
     //// Oval Drawing
     UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(fitRect.origin.x + wf * 30.5, fitRect.origin.y + hf * 30.5,
                                                                                 fitRect.origin.x + wf * 188, fitRect.origin.y + hf * 189)];
-    [params[HSIconInfoKeyFillColor] setFill];
+    [fillColor setFill];
     [ovalPath fill];
 }
 
++ (CGRect)HS_rectAspectFit:(CGSize)sourceSize destRect:(CGRect)destRect
+{
+    CGSize destSize = destRect.size;
+    CGFloat destScale = [self HS_aspectScaleFit:sourceSize destRect:destRect];
+    
+    CGFloat newWidth = sourceSize.width * destScale;
+    CGFloat newHeight = sourceSize.height * destScale;
+    
+    float dWidth = ((destSize.width - newWidth) / 2.0f);
+    float dHeight = ((destSize.height - newHeight) / 2.0f);
+    
+    CGRect rect = CGRectMake(destRect.origin.x + dWidth, destRect.origin.y + dHeight, newWidth, newHeight);
+    return rect;
+}
+
++ (CGFloat)HS_aspectScaleFit:(CGSize)sourceSize destRect:(CGRect)destRect
+{
+    CGSize destSize = destRect.size;
+    CGFloat scaleW = destSize.width / sourceSize.width;
+    CGFloat scaleH = destSize.height / sourceSize.height;
+    return MIN(scaleW, scaleH);
+}
 
 @end

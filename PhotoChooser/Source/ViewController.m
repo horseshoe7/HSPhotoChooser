@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "HSPhotoChooser.h"
+#import "HSImagePicking.h"
+#import "HSPhotoEditingViewController.h"
 
-@interface ViewController ()<HSPhotoChoosingProtocol>
+@interface ViewController ()<HSImagePicking>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @end
 
@@ -30,11 +31,11 @@
     [self performSegueWithIdentifier:@"camera" sender:self];
 }
 
-- (IBAction)HS_userFinishedSelectingPhoto:(UIStoryboardSegue *)sender
+- (IBAction)photosAssetWasPicked:(UIStoryboardSegue*)unwindSegue
 {
-    if ([sender.sourceViewController isKindOfClass:[HSPhotoEditingViewController class]]) {
+    if ([unwindSegue.sourceViewController isKindOfClass:[HSPhotoEditingViewController class]]) {
         
-        HSPhotoEditingViewController *editor = sender.sourceViewController;
+        HSPhotoEditingViewController *editor = unwindSegue.sourceViewController;
         
         if (editor.outputInfo) {
             NSLog(@"%@", editor.outputInfo);
@@ -55,7 +56,7 @@
 {
     // set up any properties you want regarding how editing should occur.
     if ([segue.identifier isEqualToString:@"camera"]) {
-        HSCameraNavigationViewController *cameraNav = [segue destinationViewController];
+        HSImagePickingNavigationController *cameraNav = [segue destinationViewController];
         cameraNav.squareEditMode = YES;
         cameraNav.assetCreationBehaviour = HSPhotoEditingAssetCreationBehaviourNone;
     }

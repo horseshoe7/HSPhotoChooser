@@ -26,9 +26,12 @@
 
 
 #import <UIKit/UIKit.h>
+#import "HSImagePicking.h"
 
 @interface HSPhotoSelectionViewController : UICollectionViewController
 
-@property (nonatomic, assign) BOOL squareEditMode;  // gets passed to the next VC.  Defaults to YES
+// NOTE!  Is readonly if you instantiated this View Controller via a storyboard and its embedded in a HSImagePickingNavigationController!
+@property (nonatomic, assign) BOOL squareEditMode;
+@property (nonatomic, assign) HSPhotoEditingAssetCreationBehaviour assetCreationBehaviour;
 
 @end
